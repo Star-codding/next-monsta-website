@@ -16,7 +16,10 @@ export default function HomeSlider() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false
+    arrows: false,
+    autoplay:true,
+    autoplaySpeed:2000,
+    pauseOnHover:true
   };
   return (
     <div>

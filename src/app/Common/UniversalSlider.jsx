@@ -34,6 +34,9 @@ export default function BestsellingSlider() {
     slidesToScroll: 1,
     dots: false,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1024,

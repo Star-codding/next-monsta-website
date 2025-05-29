@@ -12,12 +12,15 @@ import Slider from 'react-slick';
 
 export default function HomeLast() {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnHover: true
 
     };
 
@@ -70,7 +73,7 @@ export default function HomeLast() {
                             </p>
                         </div>
 
-                         <div>
+                        <div>
                             <h1 className='text-[22px] font-bold font-serif'>What Our Customer Says?</h1>
 
                             <p className='max-w-[950px] mx-auto mt-[15px] text-[rgb(90,90,90)] text-justify'>These guys have been absolutely outstanding. Perfect themes and the best of all that you have many options to choose.Best Support team ever! Very fast responding! Thank fast responding! Thank you very much! highly recommend this theme and these people!</p>
@@ -86,7 +89,7 @@ export default function HomeLast() {
                             </p>
                         </div>
 
-                         <div>
+                        <div>
                             <h1 className='text-[22px] font-bold font-serif'>What Our Customer Says?</h1>
 
                             <p className='max-w-[950px] mx-auto mt-[15px] text-[rgb(90,90,90)] text-justify'>These guys have been absolutely outstanding. Perfect themes and the best of all that you have many options to choose.Best Support team ever! Very fast responding! Thank fast responding! Thank you very much! highly recommend this theme and these people!</p>
@@ -114,7 +117,7 @@ export default function HomeLast() {
                     <h1 className='text-[22px] font-semibold font-serif'>Our Newsletter</h1>
                     <p className='text-[rgb(90,90,90)] mt-[5px]'>Get E-mail updates about our latest shop and special offers.</p>
                     <div className='flex justify-center mt-[20px] mx-auto max-w-[60%]'>
-                        <input type="text" placeholder='Email Address.....' className='border p-[7px_15px] rounded-[5px_0px_0px_5px] max-w-[70%] outline-none'/>
+                        <input type="text" placeholder='Email Address.....' className='border p-[7px_15px] rounded-[5px_0px_0px_5px] max-w-[70%] outline-none' />
                         <button className=' border p-[5px_50px] rounded-[0px_5px_5px_0px]  border-[rgb(192,149,120)] bg-[rgb(192,149,120)] text-white font-semibold cursor-pointer text-[14px] hover:text-white hover:bg-black max-w-[30%]'>Subscribe</button>
                     </div>
                 </div>
