@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { RiArrowLeftRightLine } from "react-icons/ri";
 import "slick-carousel/slick/slick.css";
@@ -24,6 +25,7 @@ import image12 from '../../../public/Images/Home Page/16253167208651620078433247
 
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BestsellingSlider() {
   const settings = {
@@ -87,12 +89,12 @@ export default function BestsellingSlider() {
           <div className="px-2">
             <div className="shadow  rounded-lg overflow-hidden ">
               <div className="relative w-full h-[200px]">
-                <Image
+               <Link href={"/product"}> <Image
                   src={product.image || "/Images/Home Page/default.jpg"}
                   alt={product.name}
                   fill
                   className="object-cover"
-                />
+                /></Link>
               </div>
 
               <div className="p-4 text-center">

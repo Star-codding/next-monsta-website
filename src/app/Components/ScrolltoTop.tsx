@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { BiSolidUpArrowCircle } from "react-icons/bi";
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -35,9 +36,9 @@ export default function ScrollToTop() {
       {visible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 transition"
+          className="fixed bottom-6 right-6 cursor-pointer p-3 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 transition"
         >
-          ↑
+         <BiSolidUpArrowCircle />
         </button>
       )}
     </>
