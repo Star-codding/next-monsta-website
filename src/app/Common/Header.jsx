@@ -8,6 +8,7 @@ import { IoMdCart } from "react-icons/io";
 import { FaAngleDown } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
+import Link from 'next/link';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,12 +35,12 @@ export default function Header() {
           <div className='max-w-[1450px] mx-auto p-[20px_20px] md:p-[20px_50px] flex items-center justify-between'>
             {/* Logo */}
             <div className='max-w-[160px]'>
-              <Image
+             <Link href={"/"}> <Image
                 src={logo}
                 alt="Furniture Logo"
                 className='max-w-full h-auto'
                 priority
-              />
+              /></Link>
             </div>
 
             {/* Search & Icons - Desktop */}
@@ -92,30 +93,30 @@ export default function Header() {
                         <div className='grid grid-cols-3 gap-6'>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>TABLES</h3>
-                            <ul className='text-sm space-y-1 text-gray-700'>
-                              <li>Side And End Tables</li>
-                              <li>Nest Of Tables</li>
-                              <li>Console Table</li>
-                              <li>Coffee Table Sets</li>
-                              <li>Coffee Tables</li>
+                            <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
+                            <Link href={"/product-listing"}>  <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Side And End Tables</li></Link>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Nest Of Tables</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Console Table</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Table Sets</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Tables</li>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>LIVING STORAGE</h3>
-                            <ul className='text-sm space-y-1 text-gray-700'>
-                              <li>Prayer Units</li>
-                              <li>Display Unit</li>
-                              <li>Shoe Racks</li>
-                              <li>Chest Of Drawers</li>
-                              <li>Cabinets And Sideboard</li>
-                              <li>Bookshelves</li>
-                              <li>Tv Units</li>
+                            <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Prayer Units</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Display Unit</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Shoe Racks</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Chest Of Drawers</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cabinets And Sideboard</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Bookshelves</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Tv Units</li>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>MIRRORS</h3>
                             <ul className='text-sm space-y-1 text-gray-700'>
-                              <li>Wooden Mirrors</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Mirrors</li>
                             </ul>
                           </div>
                         </div>
@@ -128,23 +129,23 @@ export default function Header() {
                           <div>
                             <h3 className='font-semibold text-black mb-2'>SOFA CUM BED</h3>
                             <ul className='text-sm space-y-1 text-gray-700'>
-                              <li>Wooden Sofa Cum Bed</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Cum Bed</li>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>SOFA SETS</h3>
-                            <ul className='text-sm space-y-1 text-gray-700'>
-                              <li>L Shape Sofa</li>
-                              <li>1 Seater Sofa</li>
-                              <li>2 Seater Sofa</li>
-                              <li>3 Seater Sofa</li>
-                              <li>Wooden Sofa Sets</li>
+                            <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>L Shape Sofa</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>1 Seater Sofa</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>2 Seater Sofa</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>3 Seater Sofa</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Sets</li>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>SWING JHULA</h3>
                             <ul className='text-sm space-y-1 text-gray-700'>
-                              <li>Wooden Jhula</li>
+                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Jhula</li>
                             </ul>
                           </div>
                         </div>
@@ -153,11 +154,11 @@ export default function Header() {
 
                     {item === "PAGES" && (
                       <div className="absolute left-0 top-full w-[200px] bg-white shadow-lg p-6 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
-                        <ul className='leading-[35px] text-gray-700'>
-                          <li>About us</li>
-                          <li>Cart</li>
-                          <li>Checkout</li>
-                          <li>Frequently Questions</li>
+                        <ul className='leading-[30px] text-gray-700'>
+                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>About us</li>
+                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cart</li>
+                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Checkout</li>
+                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Frequently Questions</li>
                         </ul>
                       </div>
                     )}

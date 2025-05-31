@@ -28,6 +28,7 @@ import image20 from '../../../public/Images/Home Page/1661502549484Group 1.jpg'
 
 
 import { FaRegHeart } from "react-icons/fa";
+import Link from 'next/link'
 
 export default function HomeSection() {
 
@@ -271,7 +272,7 @@ export default function HomeSection() {
                 {tabData.map((v, i) => {
                     return (
                         <div key={v.id} className='bg-white rounded-[10px] overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out'>
-                            <Image src={v.image} alt='image' className='w-full h-auto' />
+                          <Link href={"/product"}>  <Image src={v.image} alt='image' className='w-full h-auto' /> </Link>
                             <div className='text-center leading-[30px] p-4'>
                                 <p className='text-[14px] text-[rgb(90,90,90)] font-semibold'>{v.category}</p>
                                 <h1 className='font-bold'>{v.title}</h1>

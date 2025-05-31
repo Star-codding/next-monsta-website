@@ -109,16 +109,14 @@ const settings = {
 
 
                 <div >
-                
                     <BestsellingSlider/>
                 </div>
 
                  <div >
-                
                     <BestsellingSlider/>
                 </div>
 
-                <Footer/>
+                {/* <Footer/> */}
 
             </div>
         </div>
