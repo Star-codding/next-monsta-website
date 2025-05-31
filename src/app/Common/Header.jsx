@@ -23,8 +23,8 @@ export default function Header() {
               <div>
                 <p>Contact us 24/7 : +91-9781234560 / furniture@gmail.com</p>
               </div>
-              <div className='text-right'>
-                <button>Login / Register</button>
+              <div className='text-right cursor-pointer'>
+                <button>  <Link href={"/register"}>Login / Register </Link> </button>
               </div>
             </div>
           </div>
