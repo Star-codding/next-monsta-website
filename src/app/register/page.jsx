@@ -24,7 +24,7 @@ export default function page() {
                             <input type="password" placeholder='Password' className='border p-[5px_10px] w-[99%] mt-[15px] rounded' /> <br />
                             <div className='flex justify-between items-center mt-[10px]'>
                                 <p className='text-[rgb(192,149,120)] text-[14px] cursor-pointer font-semibold'>Lost Your Password ?</p>
-                            <button className='bg-[rgb(192,149,120)] text-white p-[5px_15px] rounded-[20px] mt-[25px] font-bold'>Login</button>
+                            <button className='bg-[rgb(192,149,120)] text-white p-[5px_15px] rounded-[20px] mt-[25px] font-bold hover:bg-black'>Login</button>
                             </div>
                            
                         </div>
@@ -40,7 +40,7 @@ export default function page() {
                             <input type="password" placeholder='Password' className='border p-[5px_10px] w-[99%] mt-[15px] rounded' /> <br />
                             <div className='flex justify-between items-center mt-[10px]'>
                                 <p className='text-[rgb(192,149,120)] text-[14px] cursor-pointer font-semibold'></p>
-                            <button className='bg-[rgb(192,149,120)] text-white p-[5px_15px] rounded-[20px] mt-[25px] font-bold'>Register</button>
+                            <button className='bg-[rgb(192,149,120)] text-white p-[5px_15px] rounded-[20px] mt-[25px] font-bold hover:bg-black'>Register</button>
                             </div>
                            
                         </div>

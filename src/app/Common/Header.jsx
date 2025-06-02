@@ -95,28 +95,28 @@ export default function Header() {
                             <h3 className='font-semibold text-black mb-2'>TABLES</h3>
                             <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
                             <Link href={"/product-listing"}>  <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Side And End Tables</li></Link>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Nest Of Tables</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Console Table</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Table Sets</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Tables</li>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Nest Of Tables</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Console Table</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Table Sets</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Tables</li> </Link>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>LIVING STORAGE</h3>
                             <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Prayer Units</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Display Unit</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Shoe Racks</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Chest Of Drawers</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cabinets And Sideboard</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Bookshelves</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Tv Units</li>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Prayer Units</li> </Link>
+                             <Link href={"/product-listing"}> <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Display Unit</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Shoe Racks</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Chest Of Drawers</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cabinets And Sideboard</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Bookshelves</li> </Link>
+                              <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Tv Units</li> </Link>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>MIRRORS</h3>
                             <ul className='text-sm space-y-1 text-gray-700'>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Mirrors</li>
+                            <Link href={"/product-listing"}> <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Mirrors</li> </Link>
                             </ul>
                           </div>
                         </div>
@@ -129,23 +129,23 @@ export default function Header() {
                           <div>
                             <h3 className='font-semibold text-black mb-2'>SOFA CUM BED</h3>
                             <ul className='text-sm space-y-1 text-gray-700'>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Cum Bed</li>
+                             <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Cum Bed</li></Link>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>SOFA SETS</h3>
                             <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>L Shape Sofa</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>1 Seater Sofa</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>2 Seater Sofa</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>3 Seater Sofa</li>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Sets</li>
+                            <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>L Shape Sofa</li> </Link>
+                            <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>1 Seater Sofa</li> </Link>
+                            <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>2 Seater Sofa</li> </Link>
+                            <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>3 Seater Sofa</li> </Link>
+                            <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Sets</li> </Link>
                             </ul>
                           </div>
                           <div>
                             <h3 className='font-semibold text-black mb-2'>SWING JHULA</h3>
                             <ul className='text-sm space-y-1 text-gray-700'>
-                              <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Jhula</li>
+                            <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Jhula</li> </Link>
                             </ul>
                           </div>
                         </div>
@@ -155,10 +155,10 @@ export default function Header() {
                     {item === "PAGES" && (
                       <div className="absolute left-0 top-full w-[200px] bg-white shadow-lg p-6 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
                         <ul className='leading-[30px] text-gray-700'>
-                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>About us</li>
-                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cart</li>
-                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Checkout</li>
-                          <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Frequently Questions</li>
+                         <Link href={"/about"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>About us</li></Link>
+                          <Link href={"/cart"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cart</li></Link>
+                          <Link href={"/checkout"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Checkout</li></Link>
+                          <Link href={"/frequently-questions"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Frequently Questions</li></Link>
                         </ul>
                       </div>
                     )}
