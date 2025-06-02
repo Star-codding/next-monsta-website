@@ -157,7 +157,7 @@ export default function Header() {
                         <ul className='leading-[30px] text-gray-700'>
                          <Link href={"/about"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>About us</li></Link>
                           <Link href={"/cart"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cart</li></Link>
-                          <Link href={"/checkout"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Checkout</li></Link>
+                          <Link href={"/"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Checkout</li></Link>
                           <Link href={"/frequently-questions"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Frequently Questions</li></Link>
                         </ul>
                       </div>
@@ -176,29 +176,29 @@ export default function Header() {
               <li>HOME</li>
               <li>LIVING
                 <ul className='ml-4 mt-2 text-sm space-y-1'>
-                  <li>Side And End Tables</li>
-                  <li>Nest Of Tables</li>
-                  <li>Console Table</li>
-                  <li>Coffee Table Sets</li>
-                  <li>Coffee Tables</li>
+                <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Side And End Tables</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Nest Of Tables</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Console Table</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Table Sets</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Coffee Tables</li></Link>
                 </ul>
               </li>
               <li>SOFA
                 <ul className='ml-4 mt-2 text-sm space-y-1'>
-                  <li>Sofa Cum Bed</li>
-                  <li>Wooden Sofa Cum Bed</li>
-                  <li>Sofa Sets</li>
-                  <li>L Shape Sofa</li>
-                  <li>1 Seater Sofa</li>
-                  <li>2 Seater Sofa</li>
+                <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Sofa Cum Bed</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Cum Bed</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Sofa Sets</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>L Shape Sofa</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>1 Seater Sofa</li></Link>
+                  <Link href={"/product-listing"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>2 Seater Sofa</li></Link>
                 </ul>
               </li>
               <li>PAGES
                 <ul className='ml-4 mt-2 text-sm space-y-1'>
-                  <li>About Us</li>
-                  <li>Cart</li>
-                  <li>Checkout</li>
-                  <li>Frequently Questions</li>
+                <Link href={"/about"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>About Us</li></Link>
+                  <Link href={"/cart"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Cart</li></Link>
+                  <Link href={"/"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Checkout</li></Link>
+                  <Link href={"/frequently-questions"}><li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Frequently Questions</li></Link>
                 </ul>
               </li>
               <li>CONTACT US</li>
