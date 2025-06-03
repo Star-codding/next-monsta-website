@@ -19,13 +19,12 @@ export default function Header() {
   };
 
   const toggleCategory = (category) => {
-    setActiveCategory(prev => (prev === category ? null : category));
+    setActiveCategory(activeCategory === category ? null : category);
   };
 
   return (
     <>
-      <div className='font-[arial,sans-serif]'>
-
+      <div className='font-[arial,sans-serif] relative'>
         {/* Top Bar */}
         <div className='shadow hidden lg:block'>
           <div className='max-w-[1450px] mx-auto p-[10px_55px]'>
@@ -70,115 +69,91 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Hamburger - Mobile */}
-            <div className='lg:hidden'>
-              <button onClick={() => setMenuOpen(!menuOpen)}>
-                {menuOpen ? <IoClose size={30} /> : <RxHamburgerMenu size={30} />}
+            {/* Mobile Icons */}
+            <div className='flex items-center gap-4 lg:hidden'>
+              <FaMagnifyingGlass className='text-xl' />
+              <FaHeart className='text-xl' />
+              <IoMdCart className='text-2xl' />
+              <button onClick={toggleMenu}>
+                {menuOpen ? <IoClose size={24} /> : <RxHamburgerMenu size={24} />}
               </button>
             </div>
           </div>
         </div>
 
         {/* Desktop Nav */}
-        <div className='max-w-[700px] mx-auto relative z-50 hidden lg:block'>
+        <div className='max-w-[700px] mx-auto relative z-40 hidden lg:block'>
           <div className='flex justify-evenly p-[20px] text-[14px] text-[rgb(90,90,90)]'>
             {["HOME", "LIVING", "SOFA", "PAGES", "CONTACT US"].map((item, idx) => (
-              <div key={idx} className={item === "HOME" || item === "CONTACT US" ? "cursor-pointer hover:text-[rgb(192,149,120)]" : "group relative"}>
+              <div key={idx} className={item === "HOME" || item === "CONTACT US" ? "cursor-pointer transition-all duration-300 ease-in-out hover:text-[rgb(192,149,120)] hover:scale-105" : "group relative"}>
                 {item === "HOME" || item === "CONTACT US" ? (
-                  <p className='cursor-pointer hover:text-[rgb(192,149,120)]'>{item}</p>
+                  <Link href={item === "HOME" ? "/" : "/contact"}>
+                    <p className='cursor-pointer transition-all duration-300 ease-in-out hover:text-[rgb(192,149,120)] hover:scale-105'>{item}</p>
+                  </Link>
                 ) : (
                   <>
-                    <div className='flex items-center gap-1 cursor-pointer hover:text-[rgb(192,149,120)]'>
+                    <div className='flex items-center gap-1 cursor-pointer transition-all duration-300 ease-in-out hover:text-[rgb(192,149,120)] hover:scale-105'>
                       <p>{item}</p>
                       <FaAngleDown />
                     </div>
 
-                    {/* DROPDOWN */}
-                    {item === "LIVING" && (
-                      <div className="absolute left-0 top-full w-[600px] bg-white shadow-lg p-6 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
-                        <div className='grid grid-cols-3 gap-6'>
+                    {/* Desktop Dropdowns */}
+                    <div className="absolute hidden group-hover:block top-full left-0 bg-white shadow-lg rounded-md p-4 min-w-[200px] transition-all duration-300 ease-in-out">
+                      {item === "LIVING" && (
+                        <div className="space-y-4">
                           <div>
-                            <h3 className='font-semibold text-black mb-2'>TABLES</h3>
-                            <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
-                              {["Side And End Tables", "Nest Of Tables", "Console Table", "Coffee Table Sets", "Coffee Tables"].map((name, i) => (
-                                <Link key={i} href={"/product-listing"}>
-                                  <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>{name}</li>
-                                </Link>
+                            <h3 className="font-semibold mb-2 text-gray-800">TABLES</h3>
+                            <ul className="space-y-2">
+                              {["Side And End Tables", "Nest Of Tables", "Console Table", "Coffee Table Sets", "Coffee Tables"].map((subItem, i) => (
+                                <li key={i} className="hover:text-[rgb(192,149,120)] transition-all duration-300">
+                                  <Link href="/product-listing">{subItem}</Link>
+                                </li>
                               ))}
                             </ul>
                           </div>
                           <div>
-                            <h3 className='font-semibold text-black mb-2'>LIVING STORAGE</h3>
-                            <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
-                              {["Prayer Units", "Display Unit", "Shoe Racks", "Chest Of Drawers", "Cabinets And Sideboard", "Bookshelves", "Tv Units"].map((name, i) => (
-                                <Link key={i} href={"/product-listing"}>
-                                  <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>{name}</li>
-                                </Link>
+                            <h3 className="font-semibold mb-2 text-gray-800">LIVING STORAGE</h3>
+                            <ul className="space-y-2">
+                              {["Prayer Units", "Display Unit", "Shoe Racks", "Chest Of Drawers", "Cabinets And Sideboard", "Bookshelves", "Tv Units"].map((subItem, i) => (
+                                <li key={i} className="hover:text-[rgb(192,149,120)] transition-all duration-300">
+                                  <Link href="/product-listing">{subItem}</Link>
+                                </li>
                               ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <h3 className='font-semibold text-black mb-2'>MIRRORS</h3>
-                            <ul className='text-sm space-y-1 text-gray-700'>
-                              <Link href={"/product-listing"}>
-                                <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Mirrors</li>
-                              </Link>
                             </ul>
                           </div>
                         </div>
-                      </div>
-                    )}
-
-                    {item === "SOFA" && (
-                      <div className="absolute left-0 top-full w-[600px] bg-white shadow-lg p-6 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
-                        <div className='grid grid-cols-3 gap-6'>
-                          <div>
-                            <h3 className='font-semibold text-black mb-2'>SOFA CUM BED</h3>
-                            <ul className='text-sm space-y-1 text-gray-700'>
-                              <Link href={"/product-listing"}>
-                                <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Sofa Cum Bed</li>
-                              </Link>
-                            </ul>
-                          </div>
-                          <div>
-                            <h3 className='font-semibold text-black mb-2'>SOFA SETS</h3>
-                            <ul className='text-sm space-y-1 text-gray-700 leading-[25px]'>
-                              {["L Shape Sofa", "1 Seater Sofa", "2 Seater Sofa", "3 Seater Sofa", "Wooden Sofa Sets"].map((name, i) => (
-                                <Link key={i} href={"/product-listing"}>
-                                  <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>{name}</li>
-                                </Link>
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <h3 className='font-semibold text-black mb-2'>SWING JHULA</h3>
-                            <ul className='text-sm space-y-1 text-gray-700'>
-                              <Link href={"/product-listing"}>
-                                <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>Wooden Jhula</li>
-                              </Link>
-                            </ul>
-                          </div>
+                      )}
+                      {item === "SOFA" && (
+                        <div>
+                          <h3 className="font-semibold mb-2 text-gray-800">SOFA SETS</h3>
+                          <ul className="space-y-2">
+                            {["L Shape Sofa", "1 Seater Sofa", "2 Seater Sofa", "3 Seater Sofa", "Wooden Sofa Sets"].map((subItem, i) => (
+                              <li key={i} className="hover:text-[rgb(192,149,120)] transition-all duration-300">
+                                <Link href="/product-listing">{subItem}</Link>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                      </div>
-                    )}
-
-                    {item === "PAGES" && (
-                      <div className="absolute left-0 top-full w-[200px] bg-white shadow-lg p-6 opacity-0 group-hover:opacity-100 invisible group-hover:visible transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
-                        <ul className='leading-[30px] text-gray-700'>
-                          {["About us", "Cart", "Checkout", "Frequently Questions"].map((name, i) => {
-                            const href = name === "About us" ? "/about"
-                              : name === "Cart" ? "/cart"
-                              : name === "Checkout" ? "/" // you can change this
-                              : "/frequently-questions";
-                            return (
-                              <Link key={i} href={href}>
-                                <li className='cursor-pointer hover:text-[rgb(192,149,120)]'>{name}</li>
+                      )}
+                      {item === "PAGES" && (
+                        <ul className="space-y-2">
+                          {["About us", "Cart", "Checkout", "Frequently Questions"].map((subItem, i) => (
+                            <li key={i} className="hover:text-[rgb(192,149,120)] transition-all duration-300">
+                              <Link 
+                                href={
+                                  subItem === "About us" ? "/about" :
+                                  subItem === "Cart" ? "/cart" :
+                                  subItem === "Checkout" ? "/" :
+                                  "/frequently-questions"
+                                }
+                              >
+                                {subItem}
                               </Link>
-                            );
-                          })}
+                            </li>
+                          ))}
                         </ul>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </>
                 )}
               </div>
@@ -186,17 +161,135 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Sidebar (menuOpen) */}
+        {/* Mobile Menu */}
         {menuOpen && (
-          <div className="fixed top-0 left-0 h-full w-3/4 max-w-[280px] bg-white z-50 shadow-md transform transition-transform duration-300 ease-in-out translate-x-0">
-            <button onClick={toggleMenu} className="absolute top-4 right-4 text-xl">✕</button>
+          <div className="fixed top-0 left-0 h-full w-[280px] bg-white z-50 shadow-xl overflow-y-auto transform transition-all duration-300 ease-in-out translate-x-0">
+            <div className="p-4 border-b">
+              <div className="flex justify-between items-center">
+                <h2 className="text-lg font-semibold">Menu</h2>
+                <button onClick={toggleMenu}>
+                  <IoClose size={24} />
+                </button>
+              </div>
+            </div>
 
-            <ul className="mt-12 px-6 py-8 space-y-6 text-[15px] text-gray-800">
-              <li>
-                <Link href="/" onClick={toggleMenu} className="block hover:text-[rgb(192,149,120)] transition-all duration-200 hover:translate-x-1">HOME</Link>
-              </li>
-              {/* Remaining Mobile Items TODO */}
-            </ul>
+            <div className="py-4">
+              <div className="px-4 py-2">
+                <Link href="/" onClick={toggleMenu}>
+                  <span className="block py-2 transition-all duration-300 ease-in-out hover:text-[rgb(192,149,120)] hover:translate-x-2">HOME</span>
+                </Link>
+              </div>
+
+              {/* Mobile Accordion Menu */}
+              <div className="border-t">
+                <div 
+                  className="px-4 py-3 flex justify-between items-center cursor-pointer"
+                  onClick={() => toggleCategory('living')}
+                >
+                  <span>LIVING</span>
+                  <FaAngleDown className={`transform transition-transform ${activeCategory === 'living' ? 'rotate-180' : ''}`} />
+                </div>
+                {activeCategory === 'living' && (
+                  <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
+                    <div className="mb-4">
+                      <h3 className="font-semibold mb-2">TABLES</h3>
+                      <ul className="space-y-2 text-sm">
+                        {["Side And End Tables", "Nest Of Tables", "Console Table", "Coffee Table Sets", "Coffee Tables"].map((item, i) => (
+                          <li key={i} className="hover:text-[rgb(192,149,120)]">
+                            <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mb-4">
+                      <h3 className="font-semibold mb-2">LIVING STORAGE</h3>
+                      <ul className="space-y-2 text-sm">
+                        {["Prayer Units", "Display Unit", "Shoe Racks", "Chest Of Drawers", "Cabinets And Sideboard", "Bookshelves", "Tv Units"].map((item, i) => (
+                          <li key={i} className="hover:text-[rgb(192,149,120)]">
+                            <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="border-t">
+                <div 
+                  className="px-4 py-3 flex justify-between items-center cursor-pointer"
+                  onClick={() => toggleCategory('sofa')}
+                >
+                  <span>SOFA</span>
+                  <FaAngleDown className={`transform transition-transform ${activeCategory === 'sofa' ? 'rotate-180' : ''}`} />
+                </div>
+                {activeCategory === 'sofa' && (
+                  <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
+                    <div className="mb-4">
+                      <h3 className="font-semibold mb-2">SOFA SETS</h3>
+                      <ul className="space-y-2 text-sm">
+                        {["L Shape Sofa", "1 Seater Sofa", "2 Seater Sofa", "3 Seater Sofa", "Wooden Sofa Sets"].map((item, i) => (
+                          <li key={i} className="hover:text-[rgb(192,149,120)]">
+                            <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="border-t">
+                <div 
+                  className="px-4 py-3 flex justify-between items-center cursor-pointer"
+                  onClick={() => toggleCategory('pages')}
+                >
+                  <span>PAGES</span>
+                  <FaAngleDown className={`transform transition-transform ${activeCategory === 'pages' ? 'rotate-180' : ''}`} />
+                </div>
+                {activeCategory === 'pages' && (
+                  <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
+                    <ul className="space-y-2 text-sm">
+                      {["About us", "Cart", "Checkout", "Frequently Questions"].map((item, i) => (
+                        <li key={i} className="hover:text-[rgb(192,149,120)]">
+                          <Link 
+                            href={
+                              item === "About us" ? "/about" :
+                              item === "Cart" ? "/cart" :
+                              item === "Checkout" ? "/" :
+                              "/frequently-questions"
+                            } 
+                            onClick={toggleMenu}
+                          >
+                            {item}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              <div className="border-t">
+                <Link href="/contact" onClick={toggleMenu}>
+                  <div className="px-4 py-3 hover:text-[rgb(192,149,120)]">
+                    CONTACT US
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            {/* Mobile Menu Footer */}
+            <div className="border-t px-4 py-4">
+              <Link href="/register" onClick={toggleMenu}>
+                <button className="w-full py-2 px-4 bg-[rgb(192,149,120)] text-white rounded">
+                  Login / Register
+                </button>
+              </Link>
+              <p className="mt-4 text-sm text-gray-600">
+                Contact us 24/7: +91-9781234560
+              </p>
+            </div>
           </div>
         )}
       </div>
