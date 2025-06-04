@@ -12,10 +12,15 @@ import Link from 'next/link';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const toggleCart = () => {
+    setCartOpen(!cartOpen);
   };
 
   const toggleCategory = (category) => {
@@ -64,7 +69,10 @@ export default function Header() {
               </div>
 
               <div className='flex items-center'>
-                <IoMdCart className='shadow rounded text-[35px] p-[5px] cursor-pointer' />
+                <IoMdCart 
+                  className='shadow rounded text-[35px] p-[5px] cursor-pointer' 
+                  onClick={toggleCart}
+                />
                 <p className='shadow rounded p-[5px_15px] ml-2'>Rs.0.00</p>
               </div>
             </div>
@@ -73,7 +81,7 @@ export default function Header() {
             <div className='flex items-center gap-4 lg:hidden'>
               <FaMagnifyingGlass className='text-xl' />
               <FaHeart className='text-xl' />
-              <IoMdCart className='text-2xl' />
+              <IoMdCart className='text-2xl' onClick={toggleCart} />
               <button onClick={toggleMenu}>
                 {menuOpen ? <IoClose size={24} /> : <RxHamburgerMenu size={24} />}
               </button>
@@ -162,136 +170,163 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="fixed top-0 left-0 h-full w-[280px] bg-white z-50 shadow-xl overflow-y-auto transform transition-all duration-300 ease-in-out translate-x-0">
-            <div className="p-4 border-b">
-              <div className="flex justify-between items-center">
-                <h2 className="text-lg font-semibold">Menu</h2>
-                <button onClick={toggleMenu}>
-                  <IoClose size={24} />
-                </button>
-              </div>
+        <div className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 shadow-xl overflow-y-auto transform transition-all duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          <div className="p-4 border-b">
+            <div className="flex justify-between items-center">
+              <h2 className="text-lg font-semibold">Menu</h2>
+              <button onClick={toggleMenu}>
+                <IoClose size={24} />
+              </button>
+            </div>
+          </div>
+
+          <div className="py-4">
+            <div className="px-4 py-2">
+              <Link href="/" onClick={toggleMenu}>
+                <span className="block py-2 transition-all duration-300 ease-in-out hover:text-[rgb(192,149,120)] hover:translate-x-2">HOME</span>
+              </Link>
             </div>
 
-            <div className="py-4">
-              <div className="px-4 py-2">
-                <Link href="/" onClick={toggleMenu}>
-                  <span className="block py-2 transition-all duration-300 ease-in-out hover:text-[rgb(192,149,120)] hover:translate-x-2">HOME</span>
-                </Link>
+            {/* Mobile Accordion Menu */}
+            <div className="border-t">
+              <div 
+                className="px-4 py-3 flex justify-between items-center cursor-pointer"
+                onClick={() => toggleCategory('living')}
+              >
+                <span>LIVING</span>
+                <FaAngleDown className={`transform transition-transform ${activeCategory === 'living' ? 'rotate-180' : ''}`} />
               </div>
-
-              {/* Mobile Accordion Menu */}
-              <div className="border-t">
-                <div 
-                  className="px-4 py-3 flex justify-between items-center cursor-pointer"
-                  onClick={() => toggleCategory('living')}
-                >
-                  <span>LIVING</span>
-                  <FaAngleDown className={`transform transition-transform ${activeCategory === 'living' ? 'rotate-180' : ''}`} />
-                </div>
-                {activeCategory === 'living' && (
-                  <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
-                    <div className="mb-4">
-                      <h3 className="font-semibold mb-2">TABLES</h3>
-                      <ul className="space-y-2 text-sm">
-                        {["Side And End Tables", "Nest Of Tables", "Console Table", "Coffee Table Sets", "Coffee Tables"].map((item, i) => (
-                          <li key={i} className="hover:text-[rgb(192,149,120)]">
-                            <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="mb-4">
-                      <h3 className="font-semibold mb-2">LIVING STORAGE</h3>
-                      <ul className="space-y-2 text-sm">
-                        {["Prayer Units", "Display Unit", "Shoe Racks", "Chest Of Drawers", "Cabinets And Sideboard", "Bookshelves", "Tv Units"].map((item, i) => (
-                          <li key={i} className="hover:text-[rgb(192,149,120)]">
-                            <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="border-t">
-                <div 
-                  className="px-4 py-3 flex justify-between items-center cursor-pointer"
-                  onClick={() => toggleCategory('sofa')}
-                >
-                  <span>SOFA</span>
-                  <FaAngleDown className={`transform transition-transform ${activeCategory === 'sofa' ? 'rotate-180' : ''}`} />
-                </div>
-                {activeCategory === 'sofa' && (
-                  <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
-                    <div className="mb-4">
-                      <h3 className="font-semibold mb-2">SOFA SETS</h3>
-                      <ul className="space-y-2 text-sm">
-                        {["L Shape Sofa", "1 Seater Sofa", "2 Seater Sofa", "3 Seater Sofa", "Wooden Sofa Sets"].map((item, i) => (
-                          <li key={i} className="hover:text-[rgb(192,149,120)]">
-                            <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="border-t">
-                <div 
-                  className="px-4 py-3 flex justify-between items-center cursor-pointer"
-                  onClick={() => toggleCategory('pages')}
-                >
-                  <span>PAGES</span>
-                  <FaAngleDown className={`transform transition-transform ${activeCategory === 'pages' ? 'rotate-180' : ''}`} />
-                </div>
-                {activeCategory === 'pages' && (
-                  <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
+              {activeCategory === 'living' && (
+                <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
+                  <div className="mb-4">
+                    <h3 className="font-semibold mb-2">TABLES</h3>
                     <ul className="space-y-2 text-sm">
-                      {["About us", "Cart", "Checkout", "Frequently Questions"].map((item, i) => (
+                      {["Side And End Tables", "Nest Of Tables", "Console Table", "Coffee Table Sets", "Coffee Tables"].map((item, i) => (
                         <li key={i} className="hover:text-[rgb(192,149,120)]">
-                          <Link 
-                            href={
-                              item === "About us" ? "/about" :
-                              item === "Cart" ? "/cart" :
-                              item === "Checkout" ? "/" :
-                              "/frequently-questions"
-                            } 
-                            onClick={toggleMenu}
-                          >
-                            {item}
-                          </Link>
+                          <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
                         </li>
                       ))}
                     </ul>
                   </div>
-                )}
-              </div>
-
-              <div className="border-t">
-                <Link href="/contact" onClick={toggleMenu}>
-                  <div className="px-4 py-3 hover:text-[rgb(192,149,120)]">
-                    CONTACT US
+                  <div className="mb-4">
+                    <h3 className="font-semibold mb-2">LIVING STORAGE</h3>
+                    <ul className="space-y-2 text-sm">
+                      {["Prayer Units", "Display Unit", "Shoe Racks", "Chest Of Drawers", "Cabinets And Sideboard", "Bookshelves", "Tv Units"].map((item, i) => (
+                        <li key={i} className="hover:text-[rgb(192,149,120)]">
+                          <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </Link>
-              </div>
+                </div>
+              )}
             </div>
 
-            {/* Mobile Menu Footer */}
-            <div className="border-t px-4 py-4">
-              <Link href="/register" onClick={toggleMenu}>
-                <button className="w-full py-2 px-4 bg-[rgb(192,149,120)] text-white rounded">
-                  Login / Register
-                </button>
+            <div className="border-t">
+              <div 
+                className="px-4 py-3 flex justify-between items-center cursor-pointer"
+                onClick={() => toggleCategory('sofa')}
+              >
+                <span>SOFA</span>
+                <FaAngleDown className={`transform transition-transform ${activeCategory === 'sofa' ? 'rotate-180' : ''}`} />
+              </div>
+              {activeCategory === 'sofa' && (
+                <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
+                  <div className="mb-4">
+                    <h3 className="font-semibold mb-2">SOFA SETS</h3>
+                    <ul className="space-y-2 text-sm">
+                      {["L Shape Sofa", "1 Seater Sofa", "2 Seater Sofa", "3 Seater Sofa", "Wooden Sofa Sets"].map((item, i) => (
+                        <li key={i} className="hover:text-[rgb(192,149,120)]">
+                          <Link href="/product-listing" onClick={toggleMenu}>{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="border-t">
+              <div 
+                className="px-4 py-3 flex justify-between items-center cursor-pointer"
+                onClick={() => toggleCategory('pages')}
+              >
+                <span>PAGES</span>
+                <FaAngleDown className={`transform transition-transform ${activeCategory === 'pages' ? 'rotate-180' : ''}`} />
+              </div>
+              {activeCategory === 'pages' && (
+                <div className="bg-gray-50 px-6 py-3 transition-all duration-300 ease-in-out">
+                  <ul className="space-y-2 text-sm">
+                    {["About us", "Cart", "Checkout", "Frequently Questions"].map((item, i) => (
+                      <li key={i} className="hover:text-[rgb(192,149,120)]">
+                        <Link 
+                          href={
+                            item === "About us" ? "/about" :
+                            item === "Cart" ? "/cart" :
+                            item === "Checkout" ? "/" :
+                            "/frequently-questions"
+                          } 
+                          onClick={toggleMenu}
+                        >
+                          {item}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="border-t">
+              <Link href="/contact" onClick={toggleMenu}>
+                <div className="px-4 py-3 hover:text-[rgb(192,149,120)]">
+                  CONTACT US
+                </div>
               </Link>
-              <p className="mt-4 text-sm text-gray-600">
-                Contact us 24/7: +91-9781234560
-              </p>
             </div>
           </div>
-        )}
+
+          {/* Mobile Menu Footer */}
+          <div className="border-t px-4 py-4">
+            <Link href="/register" onClick={toggleMenu}>
+              <button className="w-full py-2 px-4 bg-[rgb(192,149,120)] text-white rounded">
+                Login / Register
+              </button>
+            </Link>
+            <p className="mt-4 text-sm text-gray-600">
+              Contact us 24/7: +91-9781234560
+            </p>
+          </div>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div 
+          className={`fixed inset-0 bg-black transition-opacity duration-300 ${
+            menuOpen ? 'opacity-30 z-40' : 'opacity-0 pointer-events-none'
+          }`}
+          onClick={toggleMenu}
+        />
+
+        {/* Cart Off-Canvas */}
+        <div className={`fixed top-0 right-0 h-full w-[320px] bg-white z-50 shadow-xl transform transition-transform duration-1000 ease-in-out ${cartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="p-4 border-b flex justify-between items-center">
+            <h2 className="text-lg font-semibold">Shopping Cart</h2>
+            <button onClick={toggleCart} className="hover:text-[rgb(192,149,120)] transition-colors">
+              <IoClose size={24} />
+            </button>
+          </div>
+          <div className="p-4">
+            <p className="text-gray-500">Your cart is currently empty.</p>
+          </div>
+        </div>
+
+        {/* Cart Overlay */}
+        <div 
+          className={`fixed inset-0 bg-black transition-opacity duration-1000 ${
+            cartOpen ? 'opacity-30 z-40' : 'opacity-0 pointer-events-none'
+          }`}
+          onClick={toggleCart}
+        />
       </div>
     </>
   );

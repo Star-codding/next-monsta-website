@@ -32,6 +32,7 @@ export default function HomeSlider() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: !isSmallScreen,
+    arrows: false,
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
